@@ -8,6 +8,8 @@ import javax.ejb.Remote;
 @Remote
 public interface ServiceApi {
     
+    public String getName();
+    
     public List<DataObject> getDataObjects();
     
 }
