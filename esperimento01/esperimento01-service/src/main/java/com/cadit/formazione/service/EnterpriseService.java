@@ -17,7 +17,7 @@ public class EnterpriseService implements ServiceApi {
      * @return my name
      */
     @Override
-    public String getName(){
+    public String getName() {
         return "Francesco";
     }
     
@@ -36,5 +36,4 @@ public class EnterpriseService implements ServiceApi {
         }
         return res;
     }
-
 }
