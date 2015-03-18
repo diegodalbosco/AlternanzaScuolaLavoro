@@ -18,7 +18,7 @@ public class EnterpriseService implements ServiceApi {
      */
     @Override
     public String getName() {
-        return "Francesco";
+        return "Versione 1.1";
     }
     
     @EJB
