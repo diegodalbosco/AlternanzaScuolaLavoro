@@ -11,7 +11,16 @@ import javax.ejb.Stateless;
 
 @Stateless
 public class EnterpriseService implements ServiceApi {
-
+    
+    /**
+     * Returns my name
+     * @return my name
+     */
+    @Override
+    public String getName(){
+        return "Matteo Zeggiotti";
+    }
+    
     @EJB
     private ServicePersistence _persistence;
     
