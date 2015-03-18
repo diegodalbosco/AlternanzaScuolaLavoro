@@ -27,5 +27,10 @@ public class EnterpriseService implements ServiceApi {
         }
         return res;
     }
+
+    @Override
+    public String getName() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }
