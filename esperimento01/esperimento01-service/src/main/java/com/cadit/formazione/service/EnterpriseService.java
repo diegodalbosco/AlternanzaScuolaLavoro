@@ -27,5 +27,10 @@ public class EnterpriseService implements ServiceApi {
         }
         return res;
     }
+
+    @Override
+    public String getName() {
+        return "Andar Eduard";
+    }
     
 }
