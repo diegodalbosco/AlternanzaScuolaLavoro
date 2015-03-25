@@ -6,6 +6,7 @@ public class DataObject implements Serializable {
     
     private Integer _id;
     private String _nome;
+    private String _lingua;
     
     public DataObject() {
         
@@ -25,6 +26,14 @@ public class DataObject implements Serializable {
 
     public void setNome(String nome) {
         this._nome = nome;
+    }
+
+    public String getLingua() {
+        return _lingua;
+    }
+
+    public void setLingua(String _lingua) {
+        this._lingua = _lingua;
     }
     
 }

@@ -32,6 +32,7 @@ public class EnterpriseService implements ServiceApi {
             DataObject dataObject = new DataObject();
             dataObject.setId(entity.getId());
             dataObject.setNome(entity.getNome());
+            dataObject.setLingua(entity.getLingua());
             res.add(dataObject);
         }
         return res;
