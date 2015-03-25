@@ -12,4 +12,6 @@ public interface ServiceApi {
     
     public List<DataObject> getDataObjects();
     
+    public void addDataObject(String nome, String lingua);
+    
 }
