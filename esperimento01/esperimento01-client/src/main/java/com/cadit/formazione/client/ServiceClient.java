@@ -1,6 +1,7 @@
 package com.cadit.formazione.client;
 
 import com.cadit.configuration.Configuration;
+import com.cadit.formazione.api.Piacentini.PiacentiniApi;
 import com.cadit.formazione.api.ServiceApi;
 import com.cadit.formazione.api.data.DataObject;
 
@@ -25,10 +26,13 @@ public class ServiceClient {
 
     // JNDI dei singoli servizi
     private static final String SERVICE_API_JNDI_PROP = "SERVICE_API";
+    private static final String PIACENTINI_API_JNDI_PROP = "PIACENTINI_API";
     //private static final String SERVICE_API_JNDI_DEFAULT = "java:global/esperimento01/esperimento01-service/ServiceApi";
 	private static final String SERVICE_API_JNDI_DEFAULT = "java:global/esperimento01-ear/esperimento01-service-1.0-SNAPSHOT/EnterpriseService";
+        private static final String PIACENTINI_API_JNDI_DEFAULT = "java:global/esperimento01-ear/esperimento01-service-1.0-SNAPSHOT/PiacentiniApiBean";
 
     private final ServiceApi _api;
+    private final PiacentiniApi _piacentiniApi;
     
     public ServiceClient() throws NamingException {
         Context c;
@@ -40,6 +44,12 @@ public class ServiceClient {
         }
         String jndi = getServiceJndi(SERVICE_API_JNDI_PROP, SERVICE_API_JNDI_DEFAULT);
         _api = (ServiceApi) c.lookup(jndi);
+        String piacentiniJndi = getServiceJndi(PIACENTINI_API_JNDI_PROP, PIACENTINI_API_JNDI_PROP);
+        _piacentiniApi = (PiacentiniApi) c.lookup(jndi);
+    }
+    
+    public PiacentiniApi getPiacentiniApi(){
+        return _piacentiniApi;
     }
 
     private String getServiceJndi(String serviceApiJndiProp, String serviceApiJndiDefault) {
