@@ -3,6 +3,7 @@ package com.cadit.formazione.client;
 import com.cadit.configuration.Configuration;
 import com.cadit.formazione.api.ServiceApi;
 import com.cadit.formazione.api.data.DataObject;
+import com.cadit.formazione.api.francesco.FrancescoApi;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -25,10 +26,13 @@ public class ServiceClient {
 
     // JNDI dei singoli servizi
     private static final String SERVICE_API_JNDI_PROP = "SERVICE_API";
+    private static final String FRANCESCO_API_JNDI_PROP = "FRANCESCO_API";
     //private static final String SERVICE_API_JNDI_DEFAULT = "java:global/esperimento01/esperimento01-service/ServiceApi";
 	private static final String SERVICE_API_JNDI_DEFAULT = "java:global/esperimento01-ear/esperimento01-service-1.0-SNAPSHOT/EnterpriseService";
+        private static final String FRANCESCO_API_JNDI_DEFAULT = "java:global/esperimento01-ear/esperimento01-service-1.0-SNAPSHOT/FrancescoApiBean";
 
     private final ServiceApi _api;
+    private final FrancescoApi _francescoApi;
     
     public ServiceClient() throws NamingException {
         Context c;
@@ -40,6 +44,8 @@ public class ServiceClient {
         }
         String jndi = getServiceJndi(SERVICE_API_JNDI_PROP, SERVICE_API_JNDI_DEFAULT);
         _api = (ServiceApi) c.lookup(jndi);
+        String FrancescoJndi = getServiceJndi(FRANCESCO_API_JNDI_PROP, FRANCESCO_API_JNDI_DEFAULT);
+        _francescoApi = (FrancescoApi) c.lookup(FrancescoJndi);
     }
 
     private String getServiceJndi(String serviceApiJndiProp, String serviceApiJndiDefault) {
@@ -65,5 +71,10 @@ public class ServiceClient {
     public ServiceApi getServiceApi() {
         return _api;
     }
+    
+    public FrancescoApi getFrancescoApi() {
+        return _francescoApi;
+    }
+    
     
 }
