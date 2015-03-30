@@ -2,6 +2,7 @@ package com.cadit.formazione.client;
 
 import com.cadit.configuration.Configuration;
 import com.cadit.formazione.api.ServiceApi;
+import com.cadit.formazione.api.dalbosco.DalBoscoApi;
 import com.cadit.formazione.api.data.DataObject;
 
 import javax.naming.Context;
@@ -25,10 +26,13 @@ public class ServiceClient {
 
     // JNDI dei singoli servizi
     private static final String SERVICE_API_JNDI_PROP = "SERVICE_API";
+    private static final String DALBOSCO_API_JNDI_PROP = "DALBOSCO_API";
     //private static final String SERVICE_API_JNDI_DEFAULT = "java:global/esperimento01/esperimento01-service/ServiceApi";
 	private static final String SERVICE_API_JNDI_DEFAULT = "java:global/esperimento01-ear/esperimento01-service-1.0-SNAPSHOT/EnterpriseService";
+        private static final String DALBOSCO_API_JNDI_DEFAULT = "java:global/esperimento01-ear/esperimento01-service-1.0-SNAPSHOT/DalBoscoApiBean";
 
     private final ServiceApi _api;
+    private final DalBoscoApi _dalboscoApi;
     
     public ServiceClient() throws NamingException {
         Context c;
@@ -40,6 +44,8 @@ public class ServiceClient {
         }
         String jndi = getServiceJndi(SERVICE_API_JNDI_PROP, SERVICE_API_JNDI_DEFAULT);
         _api = (ServiceApi) c.lookup(jndi);
+        String dalboscoJndi = getServiceJndi(DALBOSCO_API_JNDI_PROP, DALBOSCO_API_JNDI_DEFAULT);
+        _dalboscoApi = (DalBoscoApi) c.lookup(dalboscoJndi);
     }
 
     private String getServiceJndi(String serviceApiJndiProp, String serviceApiJndiDefault) {
@@ -64,6 +70,9 @@ public class ServiceClient {
     
     public ServiceApi getServiceApi() {
         return _api;
+    }
+    public DalBoscoApi getDalBoscoServiceApi() {
+        return _dalboscoApi;
     }
     
 }
