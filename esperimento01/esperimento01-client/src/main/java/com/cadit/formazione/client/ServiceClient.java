@@ -1,14 +1,13 @@
 package com.cadit.formazione.client;
 
 import com.cadit.configuration.Configuration;
+import com.cadit.formazione.api.Sebastiano.SebaApi;
 import com.cadit.formazione.api.ServiceApi;
-import com.cadit.formazione.api.data.DataObject;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 
@@ -25,10 +24,13 @@ public class ServiceClient {
 
     // JNDI dei singoli servizi
     private static final String SERVICE_API_JNDI_PROP = "SERVICE_API";
+    private static final String SEBA_API_JNDI_PROP = "SEBA_API";
     //private static final String SERVICE_API_JNDI_DEFAULT = "java:global/esperimento01/esperimento01-service/ServiceApi";
 	private static final String SERVICE_API_JNDI_DEFAULT = "java:global/esperimento01-ear/esperimento01-service-1.0-SNAPSHOT/EnterpriseService";
-
+        private static final String SEBA_API_JNDI_DEFAULT = "java:global/esperimento01-ear/esperimento01-service-1.0-SNAPSHOT/SebaApiBean";
+    
     private final ServiceApi _api;
+    private final SebaApi _sebaApi;
     
     public ServiceClient() throws NamingException {
         Context c;
@@ -40,7 +42,11 @@ public class ServiceClient {
         }
         String jndi = getServiceJndi(SERVICE_API_JNDI_PROP, SERVICE_API_JNDI_DEFAULT);
         _api = (ServiceApi) c.lookup(jndi);
+        
+        String SebaJndi = getServiceJndi(SEBA_API_JNDI_PROP, SEBA_API_JNDI_DEFAULT);
+        _sebaApi = (SebaApi) c.lookup(jndi);
     }
+    
 
     private String getServiceJndi(String serviceApiJndiProp, String serviceApiJndiDefault) {
         StringBuilder res = new StringBuilder();
@@ -64,6 +70,10 @@ public class ServiceClient {
     
     public ServiceApi getServiceApi() {
         return _api;
+    }
+    
+    public SebaApi getSebaApi() {
+        return _sebaApi;
     }
     
 }
