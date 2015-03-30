@@ -37,4 +37,9 @@ public class EnterpriseService implements ServiceApi {
         }
         return res;
     }
+
+    @Override
+    public void addDataObject(String nome, String lingua) {
+        _persistence.addDataEntity(nome, lingua);
+    }
 }

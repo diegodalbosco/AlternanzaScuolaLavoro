@@ -10,6 +10,7 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import java.util.List;
+import javax.ws.rs.QueryParam;
 
 @Path("/api")
 public class RestApi {
@@ -19,8 +20,17 @@ public class RestApi {
     @Produces(MediaType.APPLICATION_JSON)
     public String getDataObjects() throws NamingException {
         ServiceClient client = new ServiceClient();
-        List<DataObject> dataObjects = client.getDataObjects();
+        List<DataObject> dataObjects = client.getServiceApi().getDataObjects();
         return Renderer.getJson(dataObjects);
+    }
+    
+    @GET
+    @Path("add")
+    public void addDataObject(
+            @QueryParam("nome") String nome,
+            @QueryParam("lingua") String lingua) throws NamingException {
+        ServiceClient client = new ServiceClient();
+        client.getServiceApi().addDataObject(nome, lingua);
     }
     
 }

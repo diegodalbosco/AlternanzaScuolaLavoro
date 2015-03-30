@@ -20,4 +20,11 @@ public class ServicePersistence {
         return resultList;
     }
 
+    public void addDataEntity(String nome, String lingua) {
+        DataEntity entity = new DataEntity();
+        entity.setNome(nome);
+        entity.setLingua(lingua);
+        _em.persist(entity);
+    }
+    
 }

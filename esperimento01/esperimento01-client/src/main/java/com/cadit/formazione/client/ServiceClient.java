@@ -62,8 +62,8 @@ public class ServiceClient {
         return res;
     }
     
-    public List<DataObject> getDataObjects() {
-        return _api.getDataObjects();
+    public ServiceApi getServiceApi() {
+        return _api;
     }
     
 }
