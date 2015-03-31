@@ -28,11 +28,6 @@
         </plugins>
     </build>
     <dependencies>
-        <dependency>
-            <groupId>com.cadit.configuration</groupId>
-            <artifactId>configuration</artifactId>
-            <version>1.0.1</version>
-        </dependency>
     </dependencies>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -41,7 +36,6 @@
     </properties>
   <modules>
     <module>esperimento01-api</module>
-    <module>esperimento01-client</module>
     <module>esperimento01-service</module>
     <module>esperimento01-persistence</module>
     <module>esperimento01-web</module>
