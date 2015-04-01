@@ -19,13 +19,13 @@ import javax.ws.rs.QueryParam;
 @Path("/Eduard")
 public class EduardRestApi {
 
-    private final ServiceApi _serviceApi;
+   private EduardRestApi _eduardRestApi;
     
-    public EduardRestApi() throws NamingException {
+   /* public EduardRestApi() throws NamingException {
         InitialContext ic = new InitialContext();
-        _serviceApi = (ServiceApi) ic.lookup("java:global/esperimento01-ear/esperimento01-service-1.0-SNAPSHOT/EnterpriseService!com.cadit.formazione.api.ServiceApi");
+        _eduardRestApi = (EduardRestApi) ic.lookup("java:global/esperimento01-ear/esperimento01-service-1.0-SNAPSHOT/EnterpriseService!com.cadit.formazione.api.EduardApi");
     }
-    
+    */
     @POST
     @Path("Element")
     public Element createElement( 
@@ -51,8 +51,8 @@ public class EduardRestApi {
     @Produces(MediaType.APPLICATION_JSON)
     public String getDataObjects() throws NamingException {
         //ServiceClient client = new ServiceClient();
-        List<DataObject> dataObjects =  _serviceApi.getDataObjects();
-        return Renderer.getJson(dataObjects);
+      String dataObjects =  _eduardRestApi.getDataObjects();
+      return Renderer.getJson(dataObjects);
     }
     
     @GET
@@ -61,7 +61,7 @@ public class EduardRestApi {
             @QueryParam("nome") String nome,
             @QueryParam("lingua") String lingua) throws NamingException {
         //ServiceClient client = new ServiceClient();
-       _serviceApi.addDataObject(nome, lingua);
+       _eduardRestApi.addDataObject(nome, lingua);
     }
     
 }
