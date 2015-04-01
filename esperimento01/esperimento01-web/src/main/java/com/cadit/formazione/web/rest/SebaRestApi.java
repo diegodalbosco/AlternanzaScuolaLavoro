@@ -26,12 +26,13 @@ public class SebaRestApi {
     @GET
     @Path("risposta")
     @Produces(MediaType.APPLICATION_JSON)
-    public String getResponse(
-            @FormParam("richiesta") Request richiesta
+    public Response getResponse(
+            @FormParam("titolo") String title,
+            @FormParam("testo") String mainText
     ) throws NamingException{
-                
-        //return _sebaApi.getResponse(richiesta);
-        return "funzionante";
+        
+        Request richiesta = new Request(title, mainText);
+        return _sebaApi.getResponse(richiesta);
     }
     
     //NON VA QUA
