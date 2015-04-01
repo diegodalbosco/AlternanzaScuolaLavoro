@@ -32,11 +32,13 @@ public class Alunno {
         return _cognome;
     }
     
-    public void setNome(String nome) {
+    public String setNome(String nome) {
         _nome = nome;
+        return "ok";
     }
 
-    public void setCognome(String cognome) {
+    public String setCognome(String cognome) {
         _cognome = cognome;
+        return "ok";
     }
 }
