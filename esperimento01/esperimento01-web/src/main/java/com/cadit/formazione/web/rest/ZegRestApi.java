@@ -1,7 +1,7 @@
 package com.cadit.formazione.web.rest;
 
 import com.cadit.formazione.client.ServiceClient;
-import com.cadit.formazione.web.rest.render.Renderer;
+
 import com.cadit.formazione.api.data.DataObject;
 import com.cadit.formazione.api.zeg.Complex;
 import com.cadit.formazione.api.zeg.ZegApi;
@@ -20,16 +20,6 @@ import javax.ws.rs.QueryParam;
 @Path("/zeg")
 public class ZegRestApi {
 
-    
-    
-    @GET
-    @Path("service")
-    @Produces(MediaType.APPLICATION_JSON)
-    public String getDataObjects() throws NamingException {
-        ServiceClient client = new ServiceClient();
-        List<DataObject> dataObjects = client.getServiceApi().getDataObjects();
-        return Renderer.getJson(dataObjects);
-    }
     
     @GET
     @Path("add")
