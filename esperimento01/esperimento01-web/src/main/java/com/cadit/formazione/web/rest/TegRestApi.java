@@ -1,7 +1,5 @@
 package com.cadit.formazione.web.rest;
 
-import com.cadit.formazione.client.ServiceClient;
-import com.cadit.formazione.web.rest.render.Renderer;
 import com.cadit.formazione.api.data.DataObject;
 import com.cadit.formazione.api.teg.Classe;
 import com.cadit.formazione.api.teg.TegApi;
