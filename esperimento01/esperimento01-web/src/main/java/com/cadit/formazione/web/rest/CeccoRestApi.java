@@ -33,9 +33,9 @@ public class CeccoRestApi {
             @FormParam("Squadra") List<Utente> listaComponenti
             
     )throws NamingException {
+        Squadra c=new Squadra (listaComponenti);
         
-        
-        return "ciao";
+        return c;
     }
     
     
