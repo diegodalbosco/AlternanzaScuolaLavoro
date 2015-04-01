@@ -1,16 +1,10 @@
 package com.cadit.formazione.web.rest;
 
-<<<<<<< HEAD
-import com.cadit.formazione.api.zeg.Complex;
-import javax.naming.InitialContext;
-=======
-import com.cadit.formazione.client.ServiceClient;
-import com.cadit.formazione.web.rest.render.Renderer;
 import com.cadit.formazione.api.data.DataObject;
 import com.cadit.formazione.api.zeg.Complex;
-import com.cadit.formazione.api.zeg.ZegApi;
+import com.cadit.formazione.web.rest.render.Renderer;
+import javax.naming.InitialContext;
 
->>>>>>> f3cd8ce2f29168bc8b23b75fd1f368f87813e106
 import javax.naming.NamingException;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -31,17 +25,13 @@ public class ZegRestApi {
         InitialContext ic = new InitialContext();
         _zegRestApi = (ZegRestApi) ic.lookup("java:global/esperimento01-ear/esperimento01-service-1.0-SNAPSHOT/EnterpriseService!com.cadit.formazione.api.ZegRestApi");
     }
-    
-    
-
-    
-    
+   
     @GET
     @Path("service")
     @Produces(MediaType.APPLICATION_JSON)
     public String getDataObjects() throws NamingException {
-        ServiceClient client = new ServiceClient();
-        List<DataObject> dataObjects = client.getServiceApi().getDataObjects();
+
+        String dataObjects = _zegRestApi.getDataObjects();
         return Renderer.getJson(dataObjects);
     }
     
