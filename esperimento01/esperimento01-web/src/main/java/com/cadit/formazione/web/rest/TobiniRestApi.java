@@ -1,6 +1,8 @@
 package com.cadit.formazione.web.rest;
 
 import com.cadit.formazione.api.tobini.Classe;
+import com.cadit.formazione.api.tobini.TobiniApi;
+import javax.naming.InitialContext;
 
 import javax.naming.NamingException;
 import javax.ws.rs.Path;
@@ -12,27 +14,13 @@ import javax.ws.rs.POST;
 @Path("/tobini")
 public class TobiniRestApi {
 
-//    @POST
-//    @Path("visuastudenti")
-//    @Produces(MediaType.APPLICATION_JSON)
-//    public void getStudenti(
-//            @FormParam("sezione") Classe c
-//    ) throws NamingException {
-//        //ServiceClient client = new ServiceClient();
-//        c.getStudenti();
+    private TobiniApi _tobiniApi;
+
+//    public TobiniRestApi() throws NamingException {
+//        InitialContext ic = new InitialContext();
+//        _tobiniApi = (TobiniApi) ic.lookup("java:global/esperimento01-ear/esperimento01-service-1.0-SNAPSHOT/EnterpriseService!com.cadit.formazione.api.TobiniApi");
 //    }
 
-//    @POST
-//    @Path("inseriscistudente")
-//    @Produces(MediaType.APPLICATION_JSON)
-//    public void insertStudenti(
-//            @FormParam("studenti") List<Studente> stud,
-//            @FormParam("sezione") Classe cla
-//    ) throws NamingException {
-//        //ServiceClient client = new ServiceClient();
-//        cla.aggiungiStudenti(stud);
-//        
-//    }
     @POST
     @Path("creaclasse")
     @Produces(MediaType.APPLICATION_JSON)
@@ -43,6 +31,4 @@ public class TobiniRestApi {
         Classe classe = new Classe(sez);
         return "Ciao";
     }
-
-
 }
