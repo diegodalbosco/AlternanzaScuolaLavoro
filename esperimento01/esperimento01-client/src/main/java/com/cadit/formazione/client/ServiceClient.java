@@ -3,7 +3,8 @@ package com.cadit.formazione.client;
 import com.cadit.configuration.Configuration;
 import com.cadit.formazione.api.ServiceApi;
 import com.cadit.formazione.api.data.DataObject;
-import com.cadit.formazione.api.japneet.JapneetApi;
+
+import com.cadit.formazione.api.zeg.ZegApi;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -26,13 +27,15 @@ public class ServiceClient {
 
     // JNDI dei singoli servizi
     private static final String SERVICE_API_JNDI_PROP = "SERVICE_API";
-    private static final String JAPNEET_API_JNDI_PROP = "JAPNEET_API";
+
+    private static final String ZEG_API_JNDI_PROP = "ZEG_API";
     //private static final String SERVICE_API_JNDI_DEFAULT = "java:global/esperimento01/esperimento01-service/ServiceApi";
-    private static final String SERVICE_API_JNDI_DEFAULT = "java:global/esperimento01-ear/esperimento01-service-1.0-SNAPSHOT/EnterpriseService";
-    private static final String JAPNEET_API_JNDI_DEFAULT = "java:global/esperimento01-ear/esperimento01-service-1.0-SNAPSHOT/JapneetApiBean";
+	private static final String SERVICE_API_JNDI_DEFAULT = "java:global/esperimento01-ear/esperimento01-service-1.0-SNAPSHOT/EnterpriseService";
+        private static final String ZEG_API_JNDI_DEFAULT = "java:global/esperimento01-ear/esperimento01-service-1.0-SNAPSHOT/ZegApiBean";
 
     private final ServiceApi _api;
-    private final JapneetApi _japneetApi;
+    private final ZegApi _zegApi;
+
     
     public ServiceClient() throws NamingException {
         Context c;
@@ -44,13 +47,13 @@ public class ServiceClient {
         }
         String jndi = getServiceJndi(SERVICE_API_JNDI_PROP, SERVICE_API_JNDI_DEFAULT);
         _api = (ServiceApi) c.lookup(jndi);
-        String japneetjndi = getServiceJndi(JAPNEET_API_JNDI_PROP, JAPNEET_API_JNDI_DEFAULT);
-        _japneetApi  = (JapneetApi) c.lookup(japneetjndi);
+
+        
+        String zegJndi = getServiceJndi(ZEG_API_JNDI_PROP, ZEG_API_JNDI_DEFAULT);
+        _zegApi = (ZegApi) c.lookup(jndi);
+
     }
 
-    public JapneetApi getJapneetApi(){
-        return _japneetApi;
-    }
     private String getServiceJndi(String serviceApiJndiProp, String serviceApiJndiDefault) {
         StringBuilder res = new StringBuilder();
         res.append(CONF.getString(JNDI_PREFIX_PROP, JNDI_PREFIX_DEFAULT))
@@ -75,4 +78,8 @@ public class ServiceClient {
         return _api;
     }
     
+
+    public ZegApi getZegApi() {
+        return _zegApi;
+    }
 }
