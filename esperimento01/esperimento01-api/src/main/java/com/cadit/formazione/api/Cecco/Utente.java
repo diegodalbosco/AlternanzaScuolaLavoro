@@ -7,10 +7,8 @@ package com.cadit.formazione.api.Cecco;
 
 /**
  *
- * @author Root
+ * @author cecco
  */
-public interface CeccoApi {
-    public String getRisp(String Domanda);
-    public Albero getAlbero(Giardino giardino, int indice);
-    public ColoreFiore getColoreFiore(Fiore fiore);
+public class Utente {
+    
 }
