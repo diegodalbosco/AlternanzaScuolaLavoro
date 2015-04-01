@@ -1,14 +1,16 @@
 package com.cadit.formazione.client;
 
 import com.cadit.configuration.Configuration;
+import com.cadit.formazione.api.Sebastiano.SebaApi;
 import com.cadit.formazione.api.ServiceApi;
-import com.cadit.formazione.api.data.DataObject;
+import com.cadit.formazione.api.dalbosco.DalBoscoApi;
+import com.cadit.formazione.api.teg.TegApi;
+import com.cadit.formazione.api.zeg.ZegApi;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 
@@ -28,7 +30,32 @@ public class ServiceClient {
     //private static final String SERVICE_API_JNDI_DEFAULT = "java:global/esperimento01/esperimento01-service/ServiceApi";
 	private static final String SERVICE_API_JNDI_DEFAULT = "java:global/esperimento01-ear/esperimento01-service-1.0-SNAPSHOT/EnterpriseService";
 
+        
+    private static final String SEBA_API_JNDI_PROP = "SEBA_API";
+    //private static final String SERVICE_API_JNDI_DEFAULT = "java:global/esperimento01/esperimento01-service/ServiceApi";
+        private static final String SEBA_API_JNDI_DEFAULT = "java:global/esperimento01-ear/esperimento01-service-1.0-SNAPSHOT/SebaApiBean";
+    
+
+    private static final String DALBOSCO_API_JNDI_PROP = "DALBOSCO_API";
+    //private static final String SERVICE_API_JNDI_DEFAULT = "java:global/esperimento01/esperimento01-service/ServiceApi";
+        private static final String DALBOSCO_API_JNDI_DEFAULT = "java:global/esperimento01-ear/esperimento01-service-1.0-SNAPSHOT/DalBoscoApiBean";
+
+    
+    private static final String TEG_API_JNDI_PROP = "TEG_API";
+    //private static final String SERVICE_API_JNDI_DEFAULT = "java:global/esperimento01/esperimento01-service/ServiceApi";
+	private static final String TEG_API_JNDI_DEFAULT = "java:global/esperimento01-ear/esperimento01-service-1.0-SNAPSHOT/TegApiBean";
+        
+    private static final String ZEG_API_JNDI_PROP = "ZEG_API";
+    //private static final String SERVICE_API_JNDI_DEFAULT = "java:global/esperimento01/esperimento01-service/ServiceApi";
+        private static final String ZEG_API_JNDI_DEFAULT = "java:global/esperimento01-ear/esperimento01-service-1.0-SNAPSHOT/ZegApiBean";
+
+        
     private final ServiceApi _api;
+    private final TegApi _tegApi;
+    private final DalBoscoApi _dalboscoApi;
+    private final SebaApi _sebaApi;
+    private final ZegApi _zegApi;
+
     
     public ServiceClient() throws NamingException {
         Context c;
@@ -40,6 +67,19 @@ public class ServiceClient {
         }
         String jndi = getServiceJndi(SERVICE_API_JNDI_PROP, SERVICE_API_JNDI_DEFAULT);
         _api = (ServiceApi) c.lookup(jndi);
+
+        String SebaJndi = getServiceJndi(SEBA_API_JNDI_PROP, SEBA_API_JNDI_DEFAULT);
+        _sebaApi = (SebaApi) c.lookup(jndi);
+
+        String dalboscoJndi = getServiceJndi(DALBOSCO_API_JNDI_PROP, DALBOSCO_API_JNDI_DEFAULT);
+        _dalboscoApi = (DalBoscoApi) c.lookup(dalboscoJndi);
+
+        String tegJndi = getServiceJndi(TEG_API_JNDI_PROP, TEG_API_JNDI_DEFAULT);
+        _tegApi = (TegApi) c.lookup(tegJndi);
+        
+        String zegJndi = getServiceJndi(ZEG_API_JNDI_PROP, ZEG_API_JNDI_DEFAULT);
+        _zegApi = (ZegApi) c.lookup(jndi);
+
     }
 
     private String getServiceJndi(String serviceApiJndiProp, String serviceApiJndiDefault) {
@@ -62,8 +102,12 @@ public class ServiceClient {
         return res;
     }
     
-    public List<DataObject> getDataObjects() {
-        return _api.getDataObjects();
+    public ServiceApi getServiceApi() {
+        return _api;
     }
     
+
+    public ZegApi getZegApi() {
+        return _zegApi;
+    }
 }
