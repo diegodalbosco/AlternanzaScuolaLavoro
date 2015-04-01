@@ -1,6 +1,5 @@
 package com.cadit.formazione.web.rest;
 
-import com.cadit.formazione.client.ServiceClient;
 import com.cadit.formazione.api.francesco.*;
 import java.rmi.Naming;
 import javax.naming.NamingException;
@@ -17,19 +16,16 @@ public class FrancescoRestApi {
     @POST
     @Path("alunno")
     @Produces(MediaType.APPLICATION_JSON)
-    public void getAlunno(
+    public Alunno getAlunno(
             @FormParam("nome") String nome,
             @FormParam("cognome") String cognome
     ) throws NamingException{
-            
-        ServiceClient client = new ServiceClient();
         
         Alunno alunno = new Alunno();
         alunno.setNome(nome);
         alunno.setCognome(cognome);
         
-        FrancescoApi francescoApi=client.getFrancescoApi();
-        francescoApi.getAlunno(nome, cognome);
+        return alunno;
         
         
     }
