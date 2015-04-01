@@ -25,13 +25,5 @@ public class Classe {
     public Integer getAnno() {
         return _anno;
     }
-
-    public void setSezione(String _sezione) {
-        this._sezione = _sezione;
-    }
-
-    public void setAnno(Integer _anno) {
-        this._anno = _anno;
-    }
-    
+   
 }
