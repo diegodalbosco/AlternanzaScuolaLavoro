@@ -9,6 +9,6 @@ public class Risposta {
     }
     
     public String getRisposta() {
-        return "Risposta: "+ _domanda;
+        return "Risposta: "+ _domanda.getDomanda();
     }
 }
