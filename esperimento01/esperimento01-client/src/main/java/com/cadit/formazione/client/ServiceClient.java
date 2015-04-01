@@ -5,6 +5,7 @@ import com.cadit.formazione.api.Sebastiano.SebaApi;
 import com.cadit.formazione.api.ServiceApi;
 import com.cadit.formazione.api.dalbosco.DalBoscoApi;
 import com.cadit.formazione.api.teg.TegApi;
+import com.cadit.formazione.api.zeg.ZegApi;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -35,7 +36,6 @@ public class ServiceClient {
         private static final String SEBA_API_JNDI_DEFAULT = "java:global/esperimento01-ear/esperimento01-service-1.0-SNAPSHOT/SebaApiBean";
     
 
-
     private static final String DALBOSCO_API_JNDI_PROP = "DALBOSCO_API";
     //private static final String SERVICE_API_JNDI_DEFAULT = "java:global/esperimento01/esperimento01-service/ServiceApi";
         private static final String DALBOSCO_API_JNDI_DEFAULT = "java:global/esperimento01-ear/esperimento01-service-1.0-SNAPSHOT/DalBoscoApiBean";
@@ -44,13 +44,18 @@ public class ServiceClient {
     private static final String TEG_API_JNDI_PROP = "TEG_API";
     //private static final String SERVICE_API_JNDI_DEFAULT = "java:global/esperimento01/esperimento01-service/ServiceApi";
 	private static final String TEG_API_JNDI_DEFAULT = "java:global/esperimento01-ear/esperimento01-service-1.0-SNAPSHOT/TegApiBean";
+        
+    private static final String ZEG_API_JNDI_PROP = "ZEG_API";
+    //private static final String SERVICE_API_JNDI_DEFAULT = "java:global/esperimento01/esperimento01-service/ServiceApi";
+        private static final String ZEG_API_JNDI_DEFAULT = "java:global/esperimento01-ear/esperimento01-service-1.0-SNAPSHOT/ZegApiBean";
 
         
     private final ServiceApi _api;
     private final TegApi _tegApi;
     private final DalBoscoApi _dalboscoApi;
     private final SebaApi _sebaApi;
-    
+    private final ZegApi _zegApi;
+
     
     public ServiceClient() throws NamingException {
         Context c;
@@ -71,8 +76,11 @@ public class ServiceClient {
 
         String tegJndi = getServiceJndi(TEG_API_JNDI_PROP, TEG_API_JNDI_DEFAULT);
         _tegApi = (TegApi) c.lookup(tegJndi);
+        
+        String zegJndi = getServiceJndi(ZEG_API_JNDI_PROP, ZEG_API_JNDI_DEFAULT);
+        _zegApi = (ZegApi) c.lookup(jndi);
+
     }
-    
 
     private String getServiceJndi(String serviceApiJndiProp, String serviceApiJndiDefault) {
         StringBuilder res = new StringBuilder();
@@ -97,16 +105,9 @@ public class ServiceClient {
     public ServiceApi getServiceApi() {
         return _api;
     }
-    public DalBoscoApi getDalBoscoServiceApi() {
-        return _dalboscoApi;
-    }
     
-    public TegApi getTegApi() {
-        return _tegApi;
+
+    public ZegApi getZegApi() {
+        return _zegApi;
     }
-    
-    public SebaApi getSebaApi() {
-        return _sebaApi;
-    }
-    
 }
