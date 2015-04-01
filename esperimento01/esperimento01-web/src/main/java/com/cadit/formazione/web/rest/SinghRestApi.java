@@ -8,11 +8,11 @@ import javax.ws.rs.FormParam;
 import javax.ws.rs.POST;
 
 
-@Path("/api")
+@Path("/singh")
 public class SinghRestApi {
 
     @POST
-    @Path("domanda")
+    @Path("service")
     @Produces(MediaType.APPLICATION_JSON)
     public String getNome(@FormParam("a") String a) throws NamingException{
      //ServiceClient client = new ServiceClient();
