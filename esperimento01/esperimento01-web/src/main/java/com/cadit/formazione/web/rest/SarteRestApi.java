@@ -4,6 +4,7 @@ import com.cadit.formazione.api.sarte.Albero;
 import com.cadit.formazione.api.sarte.Fiore;
 import com.cadit.formazione.api.sarte.Giardino;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.naming.NamingException;
 import javax.ws.rs.Path;
@@ -28,8 +29,8 @@ public class SarteRestApi {
     @Path("newGiardino")
     @Produces(MediaType.APPLICATION_JSON)
     public Giardino createGiardino(
-            @FormParam("petaliFiore") ArrayList<Integer> listaFiori, 
-            @FormParam("ramiAlbero") ArrayList<Integer> listaAlberi
+            @FormParam("petaliFiore") List<Integer> listaFiori, 
+            @FormParam("ramiAlbero") List<Integer> listaAlberi
     )throws NamingException {
         
         Giardino giardino = new Giardino();
