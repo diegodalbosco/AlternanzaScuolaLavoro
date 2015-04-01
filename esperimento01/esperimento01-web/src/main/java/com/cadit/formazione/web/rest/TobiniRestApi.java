@@ -1,7 +1,6 @@
 package com.cadit.formazione.web.rest;
 
 import com.cadit.formazione.client.ServiceClient;
-import com.cadit.formazione.web.rest.render.Renderer;
 import com.cadit.formazione.api.data.DataObject;
 import com.cadit.formazione.api.tobini.Classe;
 import com.cadit.formazione.api.tobini.Studente;
@@ -19,15 +18,15 @@ import javax.ws.rs.QueryParam;
 @Path("/tobini")
 public class TobiniRestApi {
 
-    @POST
-    @Path("visuastudenti")
-    @Produces(MediaType.APPLICATION_JSON)
-    public void getStudenti(
-            @FormParam("sezione") Classe c
-    ) throws NamingException {
-        //ServiceClient client = new ServiceClient();
-        c.getStudenti();
-    }
+//    @POST
+//    @Path("visuastudenti")
+//    @Produces(MediaType.APPLICATION_JSON)
+//    public void getStudenti(
+//            @FormParam("sezione") Classe c
+//    ) throws NamingException {
+//        //ServiceClient client = new ServiceClient();
+//        c.getStudenti();
+//    }
 
 //    @POST
 //    @Path("inseriscistudente")
