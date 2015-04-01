@@ -56,11 +56,12 @@ public class EduardRestApi {
     
     @GET
     @Path("add")
-    public void addDataObject(
+    public String addDataObject(
             @QueryParam("nome") String nome,
             @QueryParam("lingua") String lingua) throws NamingException {
         //ServiceClient client = new ServiceClient();
        _eduardRestApi.addDataObject(nome, lingua);
+       return "ok";
     }
     
 }
