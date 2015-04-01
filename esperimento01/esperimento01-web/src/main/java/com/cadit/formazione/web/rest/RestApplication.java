@@ -14,8 +14,13 @@ public class RestApplication extends Application {
     }
 
     private void addRestResourceClasses(Set<Class<?>> resources) {
+<<<<<<< HEAD
         resources.add(com.cadit.formazione.web.rest.PiacentiniApi.class);
+=======
+        resources.add(com.cadit.formazione.web.rest.DalBoscoRestApi.class);
+>>>>>>> 398cdc7db4647e51b6e856a65b06e27a962ff84b
         resources.add(com.cadit.formazione.web.rest.RestApi.class);
+        resources.add(com.cadit.formazione.web.rest.TegRestApi.class);
     }
 
 }
