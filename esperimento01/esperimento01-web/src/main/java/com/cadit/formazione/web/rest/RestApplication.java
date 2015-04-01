@@ -21,6 +21,7 @@ public class RestApplication extends Application {
         resources.add(com.cadit.formazione.web.rest.SebaRestApi.class);
         resources.add(com.cadit.formazione.web.rest.SinghRestApi.class);
         resources.add(com.cadit.formazione.web.rest.TegRestApi.class);
+        resources.add(com.cadit.formazione.web.rest.TobiniRestApi.class);
         resources.add(com.cadit.formazione.web.rest.ZegRestApi.class);
     }
 
