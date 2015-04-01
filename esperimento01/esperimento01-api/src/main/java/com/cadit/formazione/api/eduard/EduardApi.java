@@ -3,12 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.cadit.formazione.api.japneet;
+package com.cadit.formazione.api.eduard;
 
 /**
  *
- * @author singh
+ * @author andar
  */
-public interface JapneetApi {
-    public String getNome(String a);
+public interface EduardApi {
+    
+    public Answer getAnswer(Question q);
+    
+    public void createElement(Element e);
+    
 }
