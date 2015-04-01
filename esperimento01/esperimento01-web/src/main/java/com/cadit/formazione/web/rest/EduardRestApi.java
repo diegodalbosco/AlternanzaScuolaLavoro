@@ -20,7 +20,7 @@ public class EduardRestApi {
 
     @POST
     @Path("Element")
-    public String createElement( 
+    public Element createElement( 
         @FormParam("name") String name,
         @FormParam("surname") String surname,
         @FormParam("age") String age
@@ -33,7 +33,7 @@ public class EduardRestApi {
         element.setAge(age);
         //EduardApi eduardApi=client.getEduardApi();
         //eduardApi.createElement(element);
-        return "ciao";
+        return element;
     }
     
     
