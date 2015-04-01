@@ -2,7 +2,6 @@ package com.cadit.formazione.web.rest;
 
 import com.cadit.formazione.api.Piacentini.Classe;
 import com.cadit.formazione.client.ServiceClient;
-import com.cadit.formazione.web.rest.render.Renderer;
 import com.cadit.formazione.api.data.DataObject;
 
 import javax.naming.NamingException;
