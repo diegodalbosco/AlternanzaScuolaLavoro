@@ -14,6 +14,15 @@ import javax.ws.rs.POST;
 
 @Path("/sarte")
 public class SarteRestApi {
+    
+    /*
+    private final SarteApi _sarteApi;
+    public SarteRestApi(){
+        InitialContext ic = new InitialContext();
+        _sarteApi = (sarteApi) ic.lookup("java:global/esperimento01-ear/esperimento01-service-1.0-SNAPSHOT/EnterpriseService");
+    }
+    */
+    
 
     @POST
     @Path("newGiardino")
