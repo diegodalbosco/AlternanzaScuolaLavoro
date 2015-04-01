@@ -25,10 +25,13 @@ public class ServiceClient {
 
     // JNDI dei singoli servizi
     private static final String SERVICE_API_JNDI_PROP = "SERVICE_API";
+    private static final String TOBINI_API_JNDI_PROP = "TOBINI_API";
     //private static final String SERVICE_API_JNDI_DEFAULT = "java:global/esperimento01/esperimento01-service/ServiceApi";
 	private static final String SERVICE_API_JNDI_DEFAULT = "java:global/esperimento01-ear/esperimento01-service-1.0-SNAPSHOT/EnterpriseService";
-
+        private static final String TOBINI_API_JNDI_DEFAULT = "java:global/esperimento01-ear/esperimento01-service-1.0-SNAPSHOT/TobiniApiBean";
+        
     private final ServiceApi _api;
+    private final ServiceApi _tobiniApi;
     
     public ServiceClient() throws NamingException {
         Context c;
@@ -40,6 +43,8 @@ public class ServiceClient {
         }
         String jndi = getServiceJndi(SERVICE_API_JNDI_PROP, SERVICE_API_JNDI_DEFAULT);
         _api = (ServiceApi) c.lookup(jndi);
+        String tobiniJndi = getServiceJndi(TOBINI_API_JNDI_PROP, SERVICE_API_JNDI_DEFAULT);
+        _tobiniApi = (ServiceApi) c.lookup(jndi);
     }
 
     private String getServiceJndi(String serviceApiJndiProp, String serviceApiJndiDefault) {
@@ -64,6 +69,9 @@ public class ServiceClient {
     
     public ServiceApi getServiceApi() {
         return _api;
+    }
+    public ServiceApi getTobiniApi() {
+        return _tobiniApi;
     }
     
 }
