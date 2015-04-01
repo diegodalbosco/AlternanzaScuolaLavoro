@@ -1,7 +1,7 @@
 package com.cadit.formazione.web.rest;
 
-import com.cadit.formazione.client.ServiceClient;
 import com.cadit.formazione.api.zeg.Complex;
+import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -13,6 +13,15 @@ import javax.ws.rs.QueryParam;
 
 @Path("/zeg")
 public class ZegRestApi {
+    
+    private final ZegRestApi _zegRestApi;
+    
+    public ZegRestApi() throws NamingException {
+        InitialContext ic = new InitialContext();
+        _zegRestApi = (ZegRestApi) ic.lookup("java:global/esperimento01-ear/esperimento01-service-1.0-SNAPSHOT/EnterpriseService!com.cadit.formazione.api.ZegRestApi");
+    }
+    
+    
 
     
     @GET
@@ -20,8 +29,8 @@ public class ZegRestApi {
     public void addDataObject(
             @QueryParam("nome") String nome,
             @QueryParam("lingua") String lingua) throws NamingException {
-        ServiceClient client = new ServiceClient();
-        client.getServiceApi().addDataObject(nome, lingua);
+        
+        _zegRestApi.addDataObject(nome, lingua);
     }
 
     @POST
