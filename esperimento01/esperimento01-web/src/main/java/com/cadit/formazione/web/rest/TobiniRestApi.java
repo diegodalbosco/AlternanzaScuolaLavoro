@@ -12,15 +12,15 @@ import javax.ws.rs.POST;
 @Path("/tobini")
 public class TobiniRestApi {
 
-    @POST
-    @Path("visuastudenti")
-    @Produces(MediaType.APPLICATION_JSON)
-    public void getStudenti(
-            @FormParam("sezione") Classe c
-    ) throws NamingException {
-        //ServiceClient client = new ServiceClient();
-        c.getStudenti();
-    }
+//    @POST
+//    @Path("visuastudenti")
+//    @Produces(MediaType.APPLICATION_JSON)
+//    public void getStudenti(
+//            @FormParam("sezione") Classe c
+//    ) throws NamingException {
+//        //ServiceClient client = new ServiceClient();
+//        c.getStudenti();
+//    }
 
 //    @POST
 //    @Path("inseriscistudente")
