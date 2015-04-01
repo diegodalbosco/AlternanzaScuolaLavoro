@@ -12,7 +12,10 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.FormParam;
 import javax.ws.rs.POST;
 import javax.ws.rs.QueryParam;
-
+/**
+ * 
+ * @author zeggiotti
+ */
 @Path("/zeg")
 public class ZegRestApi {
     
