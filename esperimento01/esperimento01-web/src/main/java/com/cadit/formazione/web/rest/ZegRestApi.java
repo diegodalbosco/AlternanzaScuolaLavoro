@@ -2,7 +2,6 @@ package com.cadit.formazione.web.rest;
 
 import com.cadit.formazione.client.ServiceClient;
 import com.cadit.formazione.api.zeg.Complex;
-
 import javax.naming.NamingException;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;

@@ -1,6 +1,5 @@
 package com.cadit.formazione.web.rest;
 
-
 import javax.naming.NamingException;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
