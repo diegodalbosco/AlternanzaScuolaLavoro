@@ -2,7 +2,7 @@ package com.cadit.formazione.web.rest;
 
 import com.cadit.formazione.api.Sebastiano.Request;
 import com.cadit.formazione.api.Sebastiano.Response;
-import com.cadit.formazione.api.ServiceApi;
+import com.cadit.formazione.api.Sebastiano.SebaApi;
 import javax.naming.InitialContext;
 
 import javax.naming.NamingException;
@@ -16,11 +16,11 @@ import javax.ws.rs.POST;
 @Path("/seba")
 public class SebaRestApi {
     
-    private final SebaRestApi _sebaRestApi;
+    private final SebaApi _sebaApi;
     
     public SebaRestApi() throws NamingException {
         InitialContext ic = new InitialContext();
-        _sebaRestApi = (SebaRestApi) ic.lookup("java:global/esperimento01-ear/esperimento01-service-1.0-SNAPSHOT/EnterpriseService!com.cadit.formazione.api.SebaRestApi");
+        _sebaApi = (SebaApi) ic.lookup("java:global/esperimento01-ear/esperimento01-service-1.0-SNAPSHOT/EnterpriseService!com.cadit.formazione.api.SebaApi");
     }
     
     @GET
@@ -30,7 +30,7 @@ public class SebaRestApi {
             @FormParam("richiesta") Request richiesta
     ) throws NamingException{
                 
-        return _sebaRestApi.getResponse(richiesta);
+        return _sebaApi.getResponse(richiesta);
     }
     
     //NON VA QUA
