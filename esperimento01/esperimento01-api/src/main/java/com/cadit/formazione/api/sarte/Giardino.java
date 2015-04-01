@@ -6,6 +6,7 @@
 package com.cadit.formazione.api.sarte;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -13,8 +14,8 @@ import java.util.ArrayList;
  */
 public class Giardino {
     
-    private final ArrayList<Fiore> _listaFiori;
-    private final ArrayList<Albero> _listaAlberi;
+    private final List<Fiore> _listaFiori;
+    private final List<Albero> _listaAlberi;
     
     public Giardino(){
         _listaFiori = new ArrayList();
@@ -35,11 +36,11 @@ public class Giardino {
         _listaAlberi.remove(indice);
     }
 
-    public ArrayList<Fiore> getListaFiori() {
+    public List<Fiore> getListaFiori() {
         return _listaFiori;
     }
 
-    public ArrayList<Albero> getListaAlberi() {
+    public List<Albero> getListaAlberi() {
         return _listaAlberi;
     }
 
