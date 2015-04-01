@@ -14,7 +14,7 @@ public class RestApplication extends Application {
     }
 
     private void addRestResourceClasses(Set<Class<?>> resources) {
-        resources.add(RestApi.class);
+        resources.add(com.cadit.formazione.web.rest.RestApi.class);
     }
 
 }
