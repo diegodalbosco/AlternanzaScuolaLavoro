@@ -3,26 +3,29 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.cadit.formazione.api.dalbosco;
+package com.cadit.formazione.api.japneet;
 
 /**
  *
- * @author dalbosco
+ * @author singh
  */
-public class Alunno {
+public class Nome {
+    
     private final String _nome;
-    private final String _cognome;
 
-    public Alunno(String nome, String cognome) {
-        _nome = nome;
-        _cognome = cognome;
+
+    public Nome(String nome){
+    _nome=nome;
     }
+    
     
     public String getNome() {
         return _nome;
     }
-
-    public String getCognome() {
-        return _cognome;
+    
+    
+    public String getNome(String a){
+        return a+_nome;
     }
+    
 }
