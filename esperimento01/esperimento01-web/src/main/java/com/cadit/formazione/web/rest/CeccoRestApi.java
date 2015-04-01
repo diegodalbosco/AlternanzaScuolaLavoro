@@ -29,13 +29,14 @@ public class CeccoRestApi {
     @POST
     @Path("Squadra")
     @Produces(MediaType.APPLICATION_JSON)
-    public Squadra createSquadra(
-            @FormParam("Squadra") List<Utente> listaComponenti
+    public Utente createUtente(
+            @FormParam("_nome") String a,
+            @FormParam("_cognome") String d
             
     )throws NamingException {
-        Squadra c=new Squadra (listaComponenti);
+        Utente b= new Utente(a,d);
         
-        return c;
+        return b;
     }
     
     

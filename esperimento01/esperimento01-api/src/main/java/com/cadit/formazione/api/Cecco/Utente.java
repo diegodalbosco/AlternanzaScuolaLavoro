@@ -5,6 +5,8 @@
  */
 package com.cadit.formazione.api.Cecco;
 
+import java.util.List;
+
 /**
  *
  * @author cecco
@@ -15,6 +17,10 @@ public class Utente {
     
     public Utente(String n,String c){
         
+    }
+
+    public Utente(List<String> n, List<String> c) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     public String getNome() {
