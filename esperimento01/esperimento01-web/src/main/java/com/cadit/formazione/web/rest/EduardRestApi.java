@@ -52,7 +52,7 @@ public class EduardRestApi {
     public String getDataObjects() throws NamingException {
         //ServiceClient client = new ServiceClient();
       String dataObjects =  _eduardRestApi.getDataObjects();
-      return Renderer.getJson(dataObjects);
+      return dataObjects;
     }
     
     @GET
