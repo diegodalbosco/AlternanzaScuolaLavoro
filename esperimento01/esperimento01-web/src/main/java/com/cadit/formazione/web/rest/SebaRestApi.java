@@ -11,6 +11,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.FormParam;
 import javax.ws.rs.POST;
+import javax.ws.rs.QueryParam;
 
 @Path("/seba")
 public class SebaRestApi {
@@ -27,8 +28,8 @@ public class SebaRestApi {
     @Path("risposta")
     @Produces(MediaType.APPLICATION_JSON)
     public Response getResponse(
-            @FormParam("titolo") String title,
-            @FormParam("testo") String mainText
+            @QueryParam("titolo") String title,
+            @QueryParam("testo") String mainText
     ) throws NamingException{
         
         Request richiesta = new Request(title, mainText);
