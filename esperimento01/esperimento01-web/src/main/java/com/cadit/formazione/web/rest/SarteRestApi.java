@@ -3,7 +3,6 @@ package com.cadit.formazione.web.rest;
 import com.cadit.formazione.api.sarte.Albero;
 import com.cadit.formazione.api.sarte.Fiore;
 import com.cadit.formazione.api.sarte.Giardino;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.naming.NamingException;
