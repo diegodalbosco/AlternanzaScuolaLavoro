@@ -4,15 +4,12 @@ package com.cadit.formazione.web.rest;
 import com.cadit.formazione.api.zeg.Complex;
 import com.cadit.formazione.web.rest.render.Renderer;
 import javax.naming.InitialContext;
-
 import javax.naming.NamingException;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
-
 import javax.ws.rs.FormParam;
-
 import javax.ws.rs.POST;
 import javax.ws.rs.QueryParam;
 
