@@ -32,10 +32,11 @@ public class RestApi {
     
     @GET
     @Path("add")
-    public void addDataObject(
+    public String addDataObject(
             @QueryParam("nome") String nome,
             @QueryParam("lingua") String lingua) throws NamingException {
         _serviceApi.addDataObject(nome, lingua);
+        return "OK";
     }
     
 }
