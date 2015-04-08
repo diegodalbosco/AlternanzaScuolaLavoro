@@ -31,7 +31,7 @@ public class PiacentiniEntity{
     @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="PIACENTINI_ENTITIES_SEQ")
     @SequenceGenerator(name="PIACENTINI_ENTITIES_SEQ", sequenceName="PIACENTINI_ENTITIES_SEQ", allocationSize=100)
     
-    public Integer getnCivico() {
+    public Integer getNCivico() {
         return _nCivico;
     }
 
