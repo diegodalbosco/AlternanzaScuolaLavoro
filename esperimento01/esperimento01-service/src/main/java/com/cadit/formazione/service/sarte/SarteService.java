@@ -1,10 +1,17 @@
-package com.cadit.formazione.service;
+package com.cadit.formazione.service.sarte;
 
 import com.cadit.formazione.persistence.ServicePersistence;
 import com.cadit.formazione.persistence.entities.DataEntity;
 import com.cadit.formazione.api.data.DataObject;
 import com.cadit.formazione.api.ServiceApi;
+import com.cadit.formazione.api.sarte.Albero;
+import com.cadit.formazione.api.sarte.ColoreFiore;
+import com.cadit.formazione.api.sarte.Fiore;
+import com.cadit.formazione.api.sarte.Giardino;
+import com.cadit.formazione.api.sarte.SarteApi;
 import com.cadit.formazione.persistence.entities.ElementEntity;
+import com.cadit.formazione.persistence.sarte.SarteEntity;
+import com.cadit.formazione.persistence.sarte.SartePersistence;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -13,19 +20,11 @@ import javax.ejb.EJB;
 import javax.ejb.Stateless;
 
 @Stateless
-public class EnterpriseService implements ServiceApi {
+public class SarteService implements SarteApi {
     
-    /**
-     * Returns my name
-     * @return my name
-     */
-    @Override
-    public String getName() {
-        return "Versione 1.1";
-    }
-    
+
     @EJB
-    private ServicePersistence _persistence;
+    private SartePersistence _persistence;
     
     @Override
     public List<DataObject> getDataObjects() {
@@ -47,9 +46,21 @@ public class EnterpriseService implements ServiceApi {
         return res;
     }
 
+
+
     @Override
-    public void addDataObject(String nome, String lingua) {
-        _persistence.addDataEntity(nome, lingua);
+    public List<Fiore> getFiori(Giardino giardino) {
+        List<Fiore> listaFiori = new ArrayList();
+        List<SarteEntity> dataEntities = _persistence.getDataEntities();
+        
+        for (int i=0; i < dataEntities.size(); i++){
+            listaFiori.add(new Fiore())
+        }
+        return 
     }
 
+    @Override
+    public List<Albero> getAlberi(Giardino giardino) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

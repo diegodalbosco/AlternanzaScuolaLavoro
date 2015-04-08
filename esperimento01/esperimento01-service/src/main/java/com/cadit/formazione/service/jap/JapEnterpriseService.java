@@ -5,6 +5,9 @@ import com.cadit.formazione.persistence.entities.DataEntity;
 import com.cadit.formazione.api.data.DataObject;
 import com.cadit.formazione.api.ServiceApi;
 import com.cadit.formazione.persistence.entities.ElementEntity;
+import com.cadit.formazione.persistence.entities.jap.JapDataEntity;
+import com.cadit.formazione.persistence.entities.jap.JapElementEntity;
+import com.cadit.formazione.persistence.jap.Japersistence;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -13,7 +16,7 @@ import javax.ejb.EJB;
 import javax.ejb.Stateless;
 
 @Stateless
-public class EnterpriseService implements ServiceApi {
+public class JapEnterpriseService implements ServiceApi {
     
     /**
      * Returns my name
@@ -25,19 +28,19 @@ public class EnterpriseService implements ServiceApi {
     }
     
     @EJB
-    private ServicePersistence _persistence;
+    private Japersistence _persistence;
     
     @Override
     public List<DataObject> getDataObjects() {
         List<DataObject> res = new ArrayList<>();
-        List<DataEntity> entities = _persistence.getDataEntities();
-        for (DataEntity entity : entities) {
+        List<JapDataEntity> entities = _persistence.getDataEntities();
+        for (JapDataEntity entity : entities) {
             DataObject dataObject = new DataObject();
             dataObject.setId(entity.getId());
             dataObject.setNome(entity.getNome());
-            dataObject.setLingua(entity.getLingua());
+            dataObject.setLingua(entity.getPaese());
             Set<String> nomi = new HashSet<String>();
-            for (ElementEntity e : entity.getElements()) {
+            for (JapElementEntity e : entity.getElements()) {
                 String nome = e.getNome() + " " + e.getCognome();
                 nomi.add(nome);
             }
@@ -49,7 +52,8 @@ public class EnterpriseService implements ServiceApi {
 
     @Override
     public void addDataObject(String nome, String lingua) {
-        _persistence.addDataEntity(nome, lingua);
+        _persistence.addJapDataEntity(nome, lingua);
     }
+
 
 }

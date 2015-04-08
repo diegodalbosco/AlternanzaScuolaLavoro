@@ -13,6 +13,6 @@ public interface EduardApi {
     
     public Answer getAnswer(Question q);
     
-    public void createElement(Element e);
+    public void createElement(Elemento e);
     
 }

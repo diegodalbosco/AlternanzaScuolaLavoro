@@ -1,19 +1,23 @@
-package com.cadit.formazione.persistence.entities;
+package com.cadit.formazione.persistence.entities.jap;
 
+import com.cadit.formazione.persistence.entities.ElementEntity;
+import com.cadit.formazione.persistence.entities.jap.JapElementEntity;
 import javax.persistence.*;
 import java.io.*;
+import java.util.Collection;
+import java.util.List;
 import java.util.Set;
 
 @Entity
-@Table(name = "DATA_ENTITIES")
-public class DataEntity implements Serializable{
+@Table(name = "JAP_DATA_ENTITIES")
+public class JapDataEntity implements Serializable{
     
     private Integer _id;
-    private String _lingua;
+    private String _paese;
     private String _nome;
-    private Set<ElementEntity> _elements;
+    private Set<JapElementEntity> _elements;
     
-    public DataEntity() {
+    public JapDataEntity() {
         
     }
 
@@ -28,12 +32,12 @@ public class DataEntity implements Serializable{
         this._id = id;
     }
 
-    public String getLingua() {
-        return _lingua;
+    public String getPaese() {
+        return _paese;
     }
 
-    public void setLingua(String lingua) {
-        this._lingua = lingua;
+    public void setPaese(String _paese) {
+        this._paese = _paese;
     }
 
     public String getNome() {
@@ -46,12 +50,13 @@ public class DataEntity implements Serializable{
 
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name="OWNER_ID", referencedColumnName="ID")
-    public Set<ElementEntity> getElements() {
+    public Set<JapElementEntity> getElements() {
         return _elements;
     }
 
-    public void setElements(Set<ElementEntity> _elements) {
+    public void setElements(Set<JapElementEntity> _elements) {
         this._elements = _elements;
     }
+
     
 }
