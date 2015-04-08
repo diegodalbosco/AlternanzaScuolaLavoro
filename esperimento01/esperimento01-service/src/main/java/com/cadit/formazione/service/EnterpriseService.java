@@ -4,8 +4,11 @@ import com.cadit.formazione.persistence.ServicePersistence;
 import com.cadit.formazione.persistence.entities.DataEntity;
 import com.cadit.formazione.api.data.DataObject;
 import com.cadit.formazione.api.ServiceApi;
+import com.cadit.formazione.persistence.entities.ElementEntity;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
 
@@ -33,6 +36,12 @@ public class EnterpriseService implements ServiceApi {
             dataObject.setId(entity.getId());
             dataObject.setNome(entity.getNome());
             dataObject.setLingua(entity.getLingua());
+            Set<String> nomi = new HashSet<String>();
+            for (ElementEntity e : entity.getElements()) {
+                String nome = e.getNome() + " " + e.getCognome();
+                nomi.add(nome);
+            }
+            dataObject.setNomi(nomi);
             res.add(dataObject);
         }
         return res;

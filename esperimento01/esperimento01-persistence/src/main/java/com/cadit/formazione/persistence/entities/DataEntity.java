@@ -2,6 +2,9 @@ package com.cadit.formazione.persistence.entities;
 
 import javax.persistence.*;
 import java.io.*;
+import java.util.Collection;
+import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "DATA_ENTITIES")
@@ -10,6 +13,7 @@ public class DataEntity implements Serializable{
     private Integer _id;
     private String _lingua;
     private String _nome;
+    private Set<ElementEntity> _elements;
     
     public DataEntity() {
         
@@ -41,6 +45,15 @@ public class DataEntity implements Serializable{
     public void setNome(String nome) {
         this._nome = nome;
     }
-    
+
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name="OWNER_ID", referencedColumnName="ID")
+    public Set<ElementEntity> getElements() {
+        return _elements;
+    }
+
+    public void setElements(Set<ElementEntity> _elements) {
+        this._elements = _elements;
+    }
     
 }
