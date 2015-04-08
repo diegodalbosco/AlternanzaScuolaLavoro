@@ -19,5 +19,15 @@ public class SinghRestApi {
      //return client.getJapneetApi().getNome(a);
      return "ciao";
 }
-   
+ 
+        
+    @GET
+    @Path("aggiungi")
+    public String addJapDataObject(
+            @QueryParam("nome") String nome,
+            @QueryParam("paese") String paese) throws NamingException {
+        _serviceApi.addJapDataObject(nome, paese);
+        return "OK";
+    }
+    
 }

@@ -20,6 +20,7 @@ public class RestApi {
     public RestApi() throws NamingException {
         InitialContext ic = new InitialContext();
         _serviceApi = (ServiceApi) ic.lookup("java:global/esperimento01-ear/esperimento01-service-1.0-SNAPSHOT/EnterpriseService!com.cadit.formazione.api.ServiceApi");
+        
     }
 
     @GET
@@ -38,5 +39,5 @@ public class RestApi {
         _serviceApi.addDataObject(nome, lingua);
         return "OK";
     }
-    
+
 }
