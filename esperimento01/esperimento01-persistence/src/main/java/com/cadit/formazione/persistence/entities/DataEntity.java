@@ -2,8 +2,6 @@ package com.cadit.formazione.persistence.entities;
 
 import javax.persistence.*;
 import java.io.*;
-import java.util.Collection;
-import java.util.List;
 import java.util.Set;
 
 @Entity

@@ -14,13 +14,13 @@ import java.util.List;
  */
 public class Answer {
     
-    private List<Element> _persone;
+    private List<Elemento> _persone;
     
     public Answer(){
-        _persone=new LinkedList<Element>();
+        _persone=new LinkedList<Elemento>();
     }
 
-    public List<Element> getPersone() {
+    public List<Elemento> getPersone() {
         return _persone;
     }
     

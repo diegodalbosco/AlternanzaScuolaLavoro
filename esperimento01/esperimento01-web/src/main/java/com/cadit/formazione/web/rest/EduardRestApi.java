@@ -2,7 +2,7 @@ package com.cadit.formazione.web.rest;
 
 import com.cadit.formazione.api.ServiceApi;
 import com.cadit.formazione.api.data.DataObject;
-import com.cadit.formazione.api.eduard.Element;
+import com.cadit.formazione.api.eduard.Elemento;
 
 import javax.naming.NamingException;
 import javax.ws.rs.GET;
@@ -27,7 +27,7 @@ public class EduardRestApi {
     */
     @POST
     @Path("Element")
-    public Element createElement( 
+    public Elemento createElement( 
         @FormParam("name") String name,
         @FormParam("surname") String surname,
         @FormParam("age") String age
@@ -35,7 +35,7 @@ public class EduardRestApi {
             throws NamingException {
         //ServiceClient client = new ServiceClient();
           
-        Element element=new Element();
+        Elemento element=new Elemento();
         element.setName(name);
         element.setSurname(surname);
         element.setAge(age);
@@ -58,9 +58,11 @@ public class EduardRestApi {
     @Path("add")
     public String addDataObject(
             @QueryParam("nome") String nome,
-            @QueryParam("lingua") String lingua) throws NamingException {
+            @QueryParam("cognome") String cognome,
+            @QueryParam("età") String età
+    ) throws NamingException {
         //ServiceClient client = new ServiceClient();
-       _eduardRestApi.addDataObject(nome, lingua);
+       _eduardRestApi.addDataObject(nome, cognome, età);
        return "ok";
     }
     

@@ -5,24 +5,35 @@
  */
 package com.cadit.formazione.api.eduard;
 
+import java.util.Set;
+
 /**
  *
  * @author andar
  */
-public class Element {
+public class Elemento {
+    private Integer _id;
     public String _name;
     public String _surname;
     public String _age;
+    private Set<String> _nomi;
     
-    
-    public Element(String name, String surname, String age){
+    public Elemento(String name, String surname, String age){
         _name=name;
         _surname=surname;
         _age=age;
     }
     
-     public Element(){
+     public Elemento(){
        
+    }
+
+    public Integer getId() {
+        return _id;
+    }
+
+    public void setId(Integer _id) {
+        this._id = _id;
     }
     
     public String getName(){
@@ -48,5 +59,13 @@ public class Element {
     public String getAge(){
         return _age;
     }
-    
+
+    public Set<String> getNomi() {
+        return _nomi;
+    }
+
+    public void setNomi(Set<String> _nomi) {
+        this._nomi = _nomi;
+    }
+        
 }
