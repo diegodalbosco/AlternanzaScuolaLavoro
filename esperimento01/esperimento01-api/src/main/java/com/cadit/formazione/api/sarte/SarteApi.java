@@ -5,12 +5,13 @@
  */
 package com.cadit.formazione.api.sarte;
 
+import java.util.List;
+
 /**
  *
  * @author Root
  */
 public interface SarteApi {
-    public Fiore getFiore(Giardino giardino, int indice);
-    public Albero getAlbero(Giardino giardino, int indice);
-    public ColoreFiore getColoreFiore(Fiore fiore);
+    public List<Fiore> getFiori(int i);
+    public List<Albero> getAlberi(int i);
 }
