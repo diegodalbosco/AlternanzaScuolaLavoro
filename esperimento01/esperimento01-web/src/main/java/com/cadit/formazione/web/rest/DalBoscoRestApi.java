@@ -16,11 +16,11 @@ import javax.ws.rs.QueryParam;
 @Path("/dalbosco")
 public class DalBoscoRestApi {
 
-    //private final DalBoscoApi _dalBoscoeApi;
+    private final DalBoscoApi _dalBoscoeApi;
     
     public DalBoscoRestApi() throws NamingException {
-        //InitialContext ic = new InitialContext();
-        //_dalBoscoeApi = (DalBoscoApi) ic.lookup("java:global/esperimento01-ear/esperimento01-service-1.0-SNAPSHOT/EnterpriseService!com.cadit.formazione.api.DalBoscoApi");
+        InitialContext ic = new InitialContext();
+        _dalBoscoeApi = (DalBoscoApi) ic.lookup("java:global/esperimento01-ear/esperimento01-service-1.0-SNAPSHOT/DalboService!com.cadit.formazione.api.dalbosco.DalBoscoApi");
     }
     
     @GET
@@ -39,5 +39,11 @@ public class DalBoscoRestApi {
         
     }
     
+    @GET
+    @Path("add")
+    public String addDalbo(@QueryParam("nome") String nome, @QueryParam("versione") String versione) {
+        _dalBoscoeApi.addDalbo(nome, versione);
+        return "ok.";
+    }
     
 }
